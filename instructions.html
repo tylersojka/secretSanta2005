@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Setup Instructions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                        holiday: ['Mountains of Christmas', 'cursive'],
+                    },
+                    colors: {
+                        holiday: {
+                            red: '#D42426',
+                            green: '#165B33',
+                            gold: '#D4AF37',
+                            bg: '#FDFBF7'
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin 3s linear infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'snow': 'snow 10s linear infinite',
+                    },
+                    keyframes: {
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        },
+                        snow: {
+                            '0%': { transform: 'translateY(-10px)', opacity: '0' },
+                            '10%': { opacity: '1' },
+                            '100%': { transform: 'translateY(100vh)', opacity: '0.3' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@400;700&family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F3F4F6;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d42426' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        .doc-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 20px 5px rgba(212, 36, 38, 0.1);
+        }
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: #d4af37;
+            font-size: 1em;
+            text-shadow: 0 0 5px #000;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-8 px-4 sm:px-6 lg:px-8 text-gray-800 relative">
+
+    <!-- Snowflakes -->
+    <div aria-hidden="true" class="pointer-events-none">
+        <div class="snowflake animate-snow" style="left: 10%; animation-delay: 0s; opacity: 0.7;"><i class="fa-regular fa-snowflake"></i></div>
+        <div class="snowflake animate-snow" style="left: 25%; animation-delay: 2s; font-size: 1.5em;"><i class="fa-regular fa-snowflake"></i></div>
+        <div class="snowflake animate-snow" style="left: 40%; animation-delay: 4s; opacity: 0.6;"><i class="fa-regular fa-snowflake"></i></div>
+        <div class="snowflake animate-snow" style="left: 65%; animation-delay: 1s; font-size: 1.2em;"><i class="fa-regular fa-snowflake"></i></div>
+        <div class="snowflake animate-snow" style="left: 80%; animation-delay: 3s; opacity: 0.8;"><i class="fa-regular fa-snowflake"></i></div>
+        <div class="snowflake animate-snow" style="left: 95%; animation-delay: 5s; font-size: 0.8em;"><i class="fa-regular fa-snowflake"></i></div>
+    </div>
+
+    <div class="max-w-2xl mx-auto bg-white doc-shadow rounded-xl overflow-hidden border-2 border-holiday-red/20 relative z-10">
+        
+        <!-- Festive Header Banner -->
+        <div class="bg-holiday-red h-4 flex items-center justify-center overflow-hidden relative">
+            <div class="absolute inset-0 flex justify-around items-center opacity-30">
+                <i class="fa-solid fa-candy-cane text-white animate-spin-slow"></i>
+                <i class="fa-solid fa-holly-berry text-white"></i>
+                <i class="fa-solid fa-sleigh text-white"></i>
+                <i class="fa-solid fa-gift text-white animate-wiggle"></i>
+                <i class="fa-solid fa-tree text-white"></i>
+            </div>
+        </div>
+        
+        <div class="p-8 sm:p-12 bg-gradient-to-b from-white to-holiday-bg/50">
+            <!-- Header -->
+            <div class="border-b-2 border-holiday-red/20 pb-6 mb-8 text-center sm:text-left relative">
+                <!-- Decorative corner bells -->
+                <i class="fa-solid fa-bell text-holiday-gold absolute -top-2 -left-2 text-2xl rotate-[-15deg]"></i>
+                <i class="fa-solid fa-bell text-holiday-gold absolute -top-2 -right-2 text-2xl rotate-[15deg]"></i>
+
+                <div class="flex items-center justify-center sm:justify-between mb-3">
+                    <div class="flex items-center bg-holiday-red/10 px-3 py-1 rounded-full">
+                        <i class="fa-solid fa-holly-berry text-holiday-red mr-2"></i>
+                        <span class="text-xs font-bold tracking-widest text-holiday-red uppercase font-sans">Dirty Santa Gift</span>
+                    </div>
+                </div>
+                <h1 class="text-4xl sm:text-5xl font-holiday font-bold text-holiday-red mb-2 drop-shadow-sm">
+                    Let's Get Connected!
+                </h1>
+                <p class="text-gray-600 text-lg font-serif italic">
+                    Follow these simple steps to bring your holiday gift to life.
+                </p>
+            </div>
+
+            <div class="space-y-10 relative">
+                <!-- Decorative vertical line -->
+                <div class="absolute left-4 top-2 bottom-2 w-0.5 bg-holiday-red/20 hidden sm:block"></div>
+
+                <!-- Step 1 -->
+                <section class="flex gap-6 relative z-10">
+                    <div class="flex-shrink-0 mt-1">
+                        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-holiday-red to-red-700 text-white font-holiday font-bold text-2xl shadow-md border-2 border-white ring-2 ring-holiday-red/30">1</span>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-holiday-red/10 flex-grow">
+                        <h3 class="text-xl font-bold text-holiday-green mb-2 flex items-center">
+                            <i class="fa-solid fa-plug mr-2"></i> Plug it in
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Connect the clock to power. It will start up with a festive glow! Since it doesn't know your home WiFi yet, it will create its own temporary "Hotspot" for you to join.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Step 2 -->
+                <section class="flex gap-6 relative z-10">
+                    <div class="flex-shrink-0 mt-1">
+                        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-holiday-red to-red-700 text-white font-holiday font-bold text-2xl shadow-md border-2 border-white ring-2 ring-holiday-red/30">2</span>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-holiday-red/10 flex-grow">
+                        <h3 class="text-xl font-bold text-holiday-green mb-3 flex items-center">
+                            <i class="fa-solid fa-wifi mr-2"></i> Connect to the Clock
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            On your phone or laptop, open your WiFi settings and join its special network:
+                        </p>
+                        <div class="bg-holiday-bg p-4 rounded-lg border-2 border-holiday-green/20 relative overflow-hidden">
+                            <i class="fa-solid fa-candy-cane text-holiday-red/10 absolute -right-4 -bottom-4 text-6xl rotate-12"></i>
+                            <div class="mb-3">
+                                <span class="text-xs font-semibold text-holiday-green uppercase tracking-wider">Network Name (SSID)</span>
+                                <div class="font-mono text-xl font-bold text-holiday-red mt-1">ESPTimeCast</div>
+                            </div>
+                            
+                            <div>
+                                <span class="text-xs font-semibold text-holiday-green uppercase tracking-wider">Password</span>
+                                <div class="font-mono text-xl font-bold text-holiday-red mt-1">12345678</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Step 3 -->
+                <section class="flex gap-6 relative z-10">
+                    <div class="flex-shrink-0 mt-1">
+                        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-holiday-red to-red-700 text-white font-holiday font-bold text-2xl shadow-md border-2 border-white ring-2 ring-holiday-red/30">3</span>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-holiday-red/10 flex-grow">
+                        <h3 class="text-xl font-bold text-holiday-green mb-3 flex items-center">
+                            <i class="fa-solid fa-sliders mr-2"></i> Configure WiFi
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            A "Sign In" window might pop up automatically. If not, open a browser and go here:
+                        </p>
+                        <a href="http://192.168.4.1" class="flex items-center justify-center bg-holiday-red text-white font-bold text-lg py-3 px-4 rounded-lg hover:bg-red-700 transition-colors shadow-sm mb-4 group">
+                            <i class="fa-solid fa-link mr-3 group-hover:animate-wiggle"></i>
+                            http://192.168.4.1
+                        </a>
+                        <p class="text-gray-600 leading-relaxed">
+                            Tap <strong>Configure WiFi</strong>, pick your home network from the list, enter your password, and click <strong>Save</strong>.
+                        </p>
+                    </div>
+                </section>
+                
+                <!-- Step 4 -->
+                <section class="flex gap-6 relative z-10">
+                    <div class="flex-shrink-0 mt-1">
+                        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-holiday-green to-green-800 text-white font-holiday font-bold text-2xl shadow-md border-2 border-white ring-2 ring-holiday-green/30">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-holiday-red/10 flex-grow">
+                        <h3 class="text-xl font-bold text-holiday-green mb-2 flex items-center">
+                            <i class="fa-solid fa-gift mr-2 animate-bounce"></i> You're Done!
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            The clock will restart, connect to your home internet, and automatically grab the correct time and local weather. It's a Christmas miracle!
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Customization Tips Section -->
+            <div class="mt-12 bg-gradient-to-br from-green-50 to-holiday-bg rounded-xl p-6 border-2 border-green-200 shadow-sm relative overflow-hidden">
+                <i class="fa-regular fa-snowflake text-green-200 absolute -top-6 -right-6 text-8xl animate-spin-slow"></i>
+                <h3 class="text-holiday-green font-bold text-xl mb-4 flex items-center relative z-10">
+                    <i class="fa-solid fa-wand-magic-sparkles mr-3 text-holiday-gold"></i> Things You Can Customize
+                </h3>
+                <p class="text-green-900 text-sm mb-4 relative z-10">
+                    Once connected, use the IP address shown on the clock's display to access its settings menu and make it your own:
+                </p>
+                <ul class="grid sm:grid-cols-2 gap-3 text-green-900 text-sm relative z-10">
+                    <li class="flex items-start bg-white/60 p-3 rounded-lg">
+                        <i class="fa-solid fa-location-dot mt-1 mr-3 text-holiday-red"></i>
+                        <span><strong>Weather Location:</strong> Set your exact City so the forecast is accurate.</span>
+                    </li>
+                    <li class="flex items-start bg-white/60 p-3 rounded-lg">
+                        <i class="fa-regular fa-lightbulb mt-1 mr-3 text-holiday-gold"></i>
+                        <span><strong>Brightness:</strong> Adjust the glow or set it to auto-dim at night.</span>
+                    </li>
+                    <li class="flex items-start bg-white/60 p-3 rounded-lg">
+                        <i class="fa-solid fa-gauge-high mt-1 mr-3 text-blue-500"></i>
+                        <span><strong>Scroll Speed:</strong> Control how fast the text and weather move.</span>
+                    </li>
+                     <li class="flex items-start bg-white/60 p-3 rounded-lg">
+                        <i class="fa-solid fa-toggle-on mt-1 mr-3 text-purple-500"></i>
+                        <span><strong>Preferences:</strong> 12h/24h time, F°/C°, and language settings.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Future Settings Section -->
+            <div class="mt-12 pt-8 border-t-2 border-dashed border-holiday-red/30">
+                <h4 class="font-holiday font-bold text-2xl text-holiday-red mb-6 text-center sm:text-left">
+                    <i class="fa-solid fa-circle-question mr-2"></i>
+                    Need to make changes later?
+                </h4>
+                
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div class="bg-blue-50 p-5 rounded-xl border border-blue-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow">
+                        <i class="fa-solid fa-gear text-blue-200/50 absolute -bottom-4 -right-4 text-7xl group-hover:rotate-45 transition-transform duration-500"></i>
+                        <h5 class="font-bold text-blue-900 mb-2 flex items-center">
+                            <i class="fa-solid fa-wrench mr-2"></i> Quick Adjustments
+                        </h5>
+                        <p class="text-sm text-blue-800 leading-relaxed relative z-10">
+                            Watch the clock face when you first plug it in. It will scroll its new IP address (like <span class="font-mono text-xs bg-white px-1 rounded border border-blue-200">192.168.1.45</span>). Type that into your phone's browser to get back to the settings.
+                        </p>
+                    </div>
+
+                    <div class="bg-orange-50 p-5 rounded-xl border border-orange-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow">
+                        <i class="fa-solid fa-wifi text-orange-200/50 absolute -bottom-4 -right-4 text-7xl group-hover:scale-110 transition-transform duration-500"></i>
+                        <h5 class="font-bold text-orange-900 mb-2 flex items-center">
+                            <i class="fa-solid fa-house-signal mr-2"></i> Moved or Changed WiFi?
+                        </h5>
+                        <p class="text-sm text-orange-800 leading-relaxed relative z-10">
+                            No problem! If the clock can't connect, it will automatically go back to <strong>Step 1</strong> (AP Mode). Just connect to the <strong>ESPTimeCast</strong> network again to set it up.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="mt-16 text-center relative">
+                <div class="absolute inset-x-0 top-1/2 h-px bg-holiday-red/20"></div>
+                <span class="relative z-10 bg-holiday-bg px-4">
+                    <i class="fa-solid fa-candy-cane text-holiday-red rotate-[-20deg]"></i>
+                    <i class="fa-solid fa-holly-berry text-holiday-green mx-3 text-xl"></i>
+                    <i class="fa-solid fa-candy-cane text-holiday-red rotate-[20deg]"></i>
+                </span>
+                 <p class="text-holiday-red font-holiday text-xl mt-4">Merry Christmas & Happy Holidays!</p>
+                 <p class="text-xs text-gray-500 mt-2">Enjoy your handmade gift.</p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
